@@ -17,7 +17,7 @@ class GenerateRequest(BaseModel):
     model_type: str
     prompt: str
 
-#use this api to get model the user want to use
+#use this api to show models to user
 @app.get("/models")
 def list_model():
     return {"models": list(models.keys())}
