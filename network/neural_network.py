@@ -7,17 +7,17 @@ class NeuralNetwork(nn.Module):
             self.sequential_stack = nn.Sequential(
                     nn.Linear(2000, 512),
                     nn.ReLU(),
-                    nn.Linear(512, 512),
+                    nn.Linear(512, 128),
                     nn.ReLU(),
-                    nn.Linear(512, 5)
+                    nn.Linear(128, 5)
                     )
         elif activation_function == 'SiLU':
             self.sequential_stack = nn.Sequential(
                     nn.Linear(2000, 512),
                     nn.SiLU(),
-                    nn.Linear(512, 512),
+                    nn.Linear(512, 128),
                     nn.SiLU(),
-                    nn.Linear(512, 5)
+                    nn.Linear(128, 5)
                     )
         else:
             raise ValueError(f"Unknown activation_function: {activation_function}")

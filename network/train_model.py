@@ -18,8 +18,8 @@ from neural_network import NeuralNetwork
 PROCESSED_DIR = ROOT_DIR / "data" / "processed"
 INTENT_NAMES = ["GREETING", "TRADE", "INFO", "HOSTILE", "UNKNOWN"]
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
-print(f"⚡ [PyTorch Training] Sử dụng thiết bị: {device}")
+device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
+print(f"[PyTorch Training] Using: {device}")
 
 
 def load_data():
@@ -64,7 +64,7 @@ def evaluate(model, dataloader, loss_fn):
 
 def train_single_architecture(activation_function: str, epochs: int = 50, lr: float = 0.001, patience: int = 12):
     print("\n" + "=" * 65)
-    print(f"🚀 HUẤN LUYỆN KIẾN TRÚC: PyTorch MLP ({activation_function})")
+    print(f" TRAINED ARCHITECTURE: PyTorch MLP ({activation_function})")
     print(f"   Hyperparameters: lr={lr}, epochs={epochs}, patience={patience}, batch_size=32")
     print("=" * 65)
 
@@ -99,7 +99,6 @@ def train_single_architecture(activation_function: str, epochs: int = 50, lr: fl
         test_loss, test_acc, test_f1, preds = evaluate(model, test_loader, loss_fn)
 
         is_best = False
-        # Tiêu chí: Accuracy cao hơn hoặc (Acc bằng nhưng Loss thấp hơn)
         if test_acc > best_acc or (test_acc == best_acc and test_loss < best_loss):
             best_acc = test_acc
             best_loss = test_loss
@@ -122,28 +121,25 @@ def train_single_architecture(activation_function: str, epochs: int = 50, lr: fl
                 f"Macro F1: {test_f1:5.2f}%{marker}"
             )
 
-        # Early Stopping
         if no_improve_epochs >= patience:
-            print(f"⏹️ Early stopping kích hoạt tại Epoch {epoch} (không cải thiện sau {patience} epochs).")
+            print(f"⏹️ Early stopping at Epoch {epoch} ( no improvement {patience} epochs).")
             break
 
     print("\n" + "-" * 55)
-    print(f"🏆 KẾT QUẢ ĐỈNH CAO NHẤT ({activation_function}):")
-    print(f"   Epoch đạt đỉnh: {best_epoch}")
+    print(f"   Best result ({activation_function}):")
+    print(f"   Best Epoch: {best_epoch}")
     print(f"   Accuracy:       {best_acc:.2f}%")
     print(f"   Macro F1:       {best_f1:.2f}%")
     print(f"   Test Loss:      {best_loss:.4f}")
     print("-" * 55)
 
-    print(f"\n📊 Báo cáo phân loại chi tiết ({activation_function} tại Epoch {best_epoch}):")
+    print(f"\n({activation_function} at Epoch {best_epoch}):")
     print(classification_report(y_test, best_preds, target_names=INTENT_NAMES, digits=4))
 
-    # Lưu Best Model Checkpoint
     save_dir = CURRENT_DIR / "models" / activation_function
     save_dir.mkdir(parents=True, exist_ok=True)
     save_path = save_dir / f"{activation_function}.pth"
     torch.save(best_state_dict, save_path)
-    print(f"💾 Đã lưu trọng số tốt nhất vào: {save_path}\n")
 
     return {
         "model": activation_function,
@@ -159,11 +155,11 @@ def main():
     summary = []
 
     for arch in architectures:
-        res = train_single_architecture(arch, epochs=40, lr=0.001, patience=10)
+        res = train_single_architecture(arch, epochs=100, lr=0.001, patience=10)
         summary.append(res)
 
     print("\n" + "=" * 65)
-    print(f"{'Mô hình PyTorch':<20} | {'Best Epoch':<12} | {'Accuracy (%)':<14} | {'Macro F1 (%)':<12}")
+    print(f"{'Model PyTorch':<20} | {'Best Epoch':<12} | {'Accuracy (%)':<14} | {'Macro F1 (%)':<12}")
     print("-" * 65)
     for r in summary:
         print(f"MLP ({r['model']:<14}) | {r['best_epoch']:<12} | {r['accuracy']:<14.2f} | {r['macro_f1']:<12.2f}")
