@@ -121,9 +121,9 @@ def train_single_architecture(activation_function: str, epochs: int = 50, lr: fl
                 f"Macro F1: {test_f1:5.2f}%{marker}"
             )
 
-        if no_improve_epochs >= patience:
-            print(f"⏹️ Early stopping at Epoch {epoch} ( no improvement {patience} epochs).")
-            break
+       # if no_improve_epochs >= patience:
+       #     print(f"⏹️ Early stopping at Epoch {epoch} ( no improvement {patience} epochs).")
+       #     break
 
     print("\n" + "-" * 55)
     print(f"   Best result ({activation_function}):")
@@ -155,7 +155,7 @@ def main():
     summary = []
 
     for arch in architectures:
-        res = train_single_architecture(arch, epochs=100, lr=0.001, patience=10)
+        res = train_single_architecture(arch, epochs=100, lr=0.0001, patience=10)
         summary.append(res)
 
     print("\n" + "=" * 65)
