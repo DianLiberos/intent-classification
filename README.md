@@ -26,8 +26,15 @@ scipy                     1.18.1
 
 streamlit                 1.66.0
 
+fastapi                   0.165.0
+
 ## Database
 We couldn’t find any free data sources for this problem, so we decided to create around 100 examples by hand and use AI to generate the rest.
 
 We know this isn’t ideal. In the future, we hope to collect more real-world data to further improve the model.
 
+## Usage
+To start running local host for testing api
+```
+python3 -m uvicorn restapi.app:app --reload
+```

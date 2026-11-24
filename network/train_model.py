@@ -18,8 +18,8 @@ from neural_network import NeuralNetwork
 PROCESSED_DIR = ROOT_DIR / "data" / "processed"
 INTENT_NAMES = ["GREETING", "TRADE", "INFO", "HOSTILE", "UNKNOWN"]
 
-device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
-print(f"[PyTorch Training] Using: {device}")
+Device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
+print(f"[PyTorch Training] Using: {Device}")
 
 
 def load_data():
@@ -28,10 +28,10 @@ def load_data():
     y_train = np.load(PROCESSED_DIR / "y_train.npy")
     y_test = np.load(PROCESSED_DIR / "y_test.npy")
 
-    X_train_tensor = torch.FloatTensor(X_train_dense).to(device)
-    y_train_tensor = torch.LongTensor(y_train).to(device)
-    X_test_tensor = torch.FloatTensor(X_test_dense).to(device)
-    y_test_tensor = torch.LongTensor(y_test).to(device)
+    X_train_tensor = torch.FloatTensor(X_train_dense).to(Device)
+    y_train_tensor = torch.LongTensor(y_train).to(Device)
+    X_test_tensor = torch.FloatTensor(X_test_dense).to(Device)
+    y_test_tensor = torch.LongTensor(y_test).to(Device)
 
     train_loader = DataLoader(
         TensorDataset(X_train_tensor, y_train_tensor), batch_size=32, shuffle=True
@@ -70,7 +70,7 @@ def train_single_architecture(activation_function: str, epochs: int = 50, lr: fl
 
     train_loader, test_loader, y_test = load_data()
 
-    model = NeuralNetwork(activation_function=activation_function).to(device)
+    model = NeuralNetwork(activation_function=activation_function).to(Device)
     loss_fn = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 

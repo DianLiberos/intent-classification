@@ -2,6 +2,7 @@ import sys
 import pickle
 from pathlib import Path
 import torch
+from network.train_model import Device
 
 CURRENT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = CURRENT_DIR.parent
@@ -42,7 +43,7 @@ def LoadModel(path, activation_function=None):
     if activation_function is None:
         activation_function = "SiLU" if "silu" in str(path).lower() else "ReLU"
     model = NeuralNetwork(activation_function=activation_function)
-    model.load_state_dict(torch.load(path, map_location="cpu", weights_only=True))
+    model.load_state_dict(torch.load(path, map_location=Device, weights_only=True))
     model.eval()
     return model
 
