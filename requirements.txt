@@ -1,6 +1,9 @@
 torch
 numpy
+pandas
 scipy
 scikit-learn
 streamlit
 fastapi
+uvicorn
+requests
