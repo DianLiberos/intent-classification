@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-25 13:11:53",
+  "timestamp": "2026-11-28 07:25:03",
   "test_samples": 2000,
   "summary": [
     {
@@ -8,7 +8,7 @@
       "accuracy": 94.4,
       "macro_f1": 94.38,
       "weighted_f1": 94.38,
-      "latency_ms": 0.0003,
+      "latency_ms": 0.0008,
       "size_kb": 156.92,
       "error_count": 112
     },
@@ -18,7 +18,7 @@
       "accuracy": 92.65,
       "macro_f1": 92.56,
       "weighted_f1": 92.56,
-      "latency_ms": 0.0105,
+      "latency_ms": 0.022,
       "size_kb": 4263.92,
       "error_count": 147
     },
@@ -28,7 +28,7 @@
       "accuracy": 91.5,
       "macro_f1": 91.42,
       "weighted_f1": 91.42,
-      "latency_ms": 0.0216,
+      "latency_ms": 0.0231,
       "size_kb": 4263.92,
       "error_count": 170
     },
@@ -38,7 +38,7 @@
       "accuracy": 88.3,
       "macro_f1": 88.01,
       "weighted_f1": 88.01,
-      "latency_ms": 0.0002,
+      "latency_ms": 0.0006,
       "size_kb": 78.77,
       "error_count": 234
     },
@@ -48,7 +48,7 @@
       "accuracy": 88.2,
       "macro_f1": 87.86,
       "weighted_f1": 87.86,
-      "latency_ms": 0.0002,
+      "latency_ms": 0.001,
       "size_kb": 78.88,
       "error_count": 236
     }

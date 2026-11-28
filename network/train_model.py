@@ -18,7 +18,10 @@ from neural_network import NeuralNetwork
 PROCESSED_DIR = ROOT_DIR / "data" / "processed"
 INTENT_NAMES = ["GREETING", "TRADE", "INFO", "HOSTILE", "UNKNOWN"]
 
-Device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
+if hasattr(torch, "accelerator") and torch.accelerator.is_available():
+    Device = torch.accelerator.current_accelerator().type
+else:
+    Device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"[PyTorch Training] Using: {Device}")
 
 
