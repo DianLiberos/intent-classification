@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-17 22:09:27",
+  "timestamp": "2026-11-25 13:11:53",
   "test_samples": 2000,
   "summary": [
     {
@@ -8,29 +8,29 @@
       "accuracy": 94.4,
       "macro_f1": 94.38,
       "weighted_f1": 94.38,
-      "latency_ms": 0.001,
+      "latency_ms": 0.0003,
       "size_kb": 156.92,
       "error_count": 112
     },
     {
-      "model_name": "PyTorch MLP (ReLU)",
-      "framework": "PyTorch (CPU)",
-      "accuracy": 90.95,
-      "macro_f1": 90.78,
-      "weighted_f1": 90.78,
-      "latency_ms": 0.0364,
-      "size_kb": 5040.48,
-      "error_count": 181
-    },
-    {
       "model_name": "PyTorch MLP (SiLU)",
       "framework": "PyTorch (CPU)",
-      "accuracy": 89.45,
-      "macro_f1": 89.21,
-      "weighted_f1": 89.21,
-      "latency_ms": 0.0278,
-      "size_kb": 5040.48,
-      "error_count": 211
+      "accuracy": 92.65,
+      "macro_f1": 92.56,
+      "weighted_f1": 92.56,
+      "latency_ms": 0.0105,
+      "size_kb": 4263.92,
+      "error_count": 147
+    },
+    {
+      "model_name": "PyTorch MLP (ReLU)",
+      "framework": "PyTorch (CPU)",
+      "accuracy": 91.5,
+      "macro_f1": 91.42,
+      "weighted_f1": 91.42,
+      "latency_ms": 0.0216,
+      "size_kb": 4263.92,
+      "error_count": 170
     },
     {
       "model_name": "Linear SVM",
@@ -38,7 +38,7 @@
       "accuracy": 88.3,
       "macro_f1": 88.01,
       "weighted_f1": 88.01,
-      "latency_ms": 0.0007,
+      "latency_ms": 0.0002,
       "size_kb": 78.77,
       "error_count": 234
     },
@@ -48,7 +48,7 @@
       "accuracy": 88.2,
       "macro_f1": 87.86,
       "weighted_f1": 87.86,
-      "latency_ms": 0.0006,
+      "latency_ms": 0.0002,
       "size_kb": 78.88,
       "error_count": 236
     }
@@ -191,91 +191,91 @@
     },
     "PyTorch MLP (ReLU)": {
       "GREETING": {
-        "precision": 0.9006928406466512,
-        "recall": 0.975,
-        "f1-score": 0.936374549819928,
+        "precision": 0.9419191919191919,
+        "recall": 0.9325,
+        "f1-score": 0.9371859296482412,
         "support": 400.0
       },
       "TRADE": {
-        "precision": 0.8863636363636364,
-        "recall": 0.975,
-        "f1-score": 0.9285714285714286,
+        "precision": 0.9156327543424317,
+        "recall": 0.9225,
+        "f1-score": 0.9190535491905355,
         "support": 400.0
       },
       "INFO": {
-        "precision": 0.9228395061728395,
-        "recall": 0.7475,
-        "f1-score": 0.8259668508287292,
+        "precision": 0.8867924528301887,
+        "recall": 0.8225,
+        "f1-score": 0.8534370946822308,
         "support": 400.0
       },
       "HOSTILE": {
-        "precision": 0.9767441860465116,
-        "recall": 0.945,
-        "f1-score": 0.9606099110546379,
+        "precision": 0.936768149882904,
+        "recall": 1.0,
+        "f1-score": 0.9673518742442564,
         "support": 400.0
       },
       "UNKNOWN": {
-        "precision": 0.8701923076923077,
-        "recall": 0.905,
-        "f1-score": 0.8872549019607843,
+        "precision": 0.890818858560794,
+        "recall": 0.8975,
+        "f1-score": 0.8941469489414695,
         "support": 400.0
       },
-      "accuracy": 0.9095,
+      "accuracy": 0.915,
       "macro avg": {
-        "precision": 0.9113664953843893,
-        "recall": 0.9094999999999999,
-        "f1-score": 0.9077555284471014,
+        "precision": 0.9143862815071021,
+        "recall": 0.915,
+        "f1-score": 0.9142350793413467,
         "support": 2000.0
       },
       "weighted avg": {
-        "precision": 0.9113664953843892,
-        "recall": 0.9095,
-        "f1-score": 0.9077555284471016,
+        "precision": 0.9143862815071021,
+        "recall": 0.915,
+        "f1-score": 0.9142350793413468,
         "support": 2000.0
       }
     },
     "PyTorch MLP (SiLU)": {
       "GREETING": {
-        "precision": 0.8883720930232558,
-        "recall": 0.955,
-        "f1-score": 0.9204819277108434,
+        "precision": 0.9299516908212561,
+        "recall": 0.9625,
+        "f1-score": 0.9459459459459459,
         "support": 400.0
       },
       "TRADE": {
-        "precision": 0.9458762886597938,
-        "recall": 0.9175,
-        "f1-score": 0.9314720812182741,
+        "precision": 0.8917050691244239,
+        "recall": 0.9675,
+        "f1-score": 0.9280575539568345,
         "support": 400.0
       },
       "INFO": {
-        "precision": 0.9006211180124224,
-        "recall": 0.725,
-        "f1-score": 0.8033240997229917,
+        "precision": 0.9103260869565217,
+        "recall": 0.8375,
+        "f1-score": 0.8723958333333334,
         "support": 400.0
       },
       "HOSTILE": {
-        "precision": 0.8928571428571429,
+        "precision": 0.9569377990430622,
         "recall": 1.0,
-        "f1-score": 0.9433962264150944,
+        "f1-score": 0.9779951100244498,
         "support": 400.0
       },
       "UNKNOWN": {
-        "precision": 0.8495145631067961,
-        "recall": 0.875,
-        "f1-score": 0.8620689655172413,
+        "precision": 0.9453551912568307,
+        "recall": 0.865,
+        "f1-score": 0.9033942558746736,
         "support": 400.0
       },
-      "accuracy": 0.8945,
+      "accuracy": 0.9265,
       "macro avg": {
-        "precision": 0.8954482411318823,
-        "recall": 0.8945000000000001,
-        "f1-score": 0.8921486601168889,
+        "precision": 0.926855167440419,
+        "recall": 0.9265000000000001,
+        "f1-score": 0.9255577398270475,
         "support": 2000.0
       },
       "weighted avg": {
-        "precision": 0.8954482411318821,
-        "recall": 0.8945,
-        "f1-score": 0.8921486601168889,
+        "precision": 0.9268551674404188,
+        "recall": 0.9265,
+        "f1-score": 0.9255577398270475,
         "support": 2000.0
       }
     }
@@ -394,62 +394,25 @@
     ],
     "PyTorch MLP (ReLU)": [
       [
-        390,
-        0,
-        4,
-        0,
-        6
-      ],
-      [
-        0,
-        390,
-        7,
-        0,
+        373,
+        1,
+        13,
+        10,
         3
       ],
       [
-        39,
-        17,
-        299,
         0,
-        45
-      ],
-      [
-        0,
-        22,
-        0,
-        378,
-        0
-      ],
-      [
-        4,
-        11,
-        14,
-        9,
-        362
-      ]
-    ],
-    "PyTorch MLP (SiLU)": [
-      [
-        382,
-        2,
-        6,
-        9,
-        1
-      ],
-      [
-        0,
-        367,
+        369,
         19,
         1,
-        13
+        11
       ],
       [
-        48,
-        11,
-        290,
-        3,
-        48
+        22,
+        18,
+        329,
+        1,
+        30
       ],
       [
         0,
@@ -459,11 +422,48 @@
         0
       ],
       [
+        1,
+        15,
+        10,
+        15,
+        359
+      ]
+    ],
+    "PyTorch MLP (SiLU)": [
+      [
+        385,
+        1,
+        10,
+        3,
+        1
+      ],
+      [
         0,
-        8,
-        7,
-        35,
-        350
+        387,
+        11,
+        1,
+        1
+      ],
+      [
+        25,
+        22,
+        335,
+        0,
+        18
+      ],
+      [
+        0,
+        0,
+        0,
+        400,
+        0
+      ],
+      [
+        4,
+        24,
+        12,
+        14,
+        346
       ]
     ]
   },
@@ -596,9 +596,19 @@
     ],
     "PyTorch MLP (ReLU)": [
       {
+        "text": "ê có nhận trao đổi dai dao cu lay hàng mới bù them ngoc k lao bản coi",
+        "true_intent": "TRADE",
+        "pred_intent": "INFO"
+      },
+      {
         "text": "điểm yếu chí mạng của loài goblin nằm chỗ nào, xin npc chỉ giáo",
         "true_intent": "INFO",
         "pred_intent": "UNKNOWN"
+      },
+      {
+        "text": "co nhận trao doi giày tốc do cu lay hàng moi bù thêm zen cha dai sư đi",
+        "true_intent": "TRADE",
+        "pred_intent": "INFO"
       },
       {
         "text": "muon hoan thanh mat thu nay thi minh can thu thap du may cai bui tien?",
@@ -606,13 +616,13 @@
         "pred_intent": "TRADE"
       },
       {
-        "text": "ê đừng để tao nong mau, cái mạng gia của anh chu shop không chiu noi một đao đâu đồ đồ rác ruoi coi",
-        "true_intent": "HOSTILE",
-        "pred_intent": "TRADE"
+        "text": "này thương nhân, nhận ra khách quen là tại hạ khum, alo",
+        "true_intent": "GREETING",
+        "pred_intent": "INFO"
       },
       {
-        "text": "điểm yếu chí mạng của loài vua hải tặc nằm ở đâu, xin xèng bối chỉ giáo",
-        "true_intent": "INFO",
+        "text": "nay shop, nhan ra khach quen la minh k, e",
+        "true_intent": "GREETING",
         "pred_intent": "UNKNOWN"
       },
       {
@@ -624,6 +634,28 @@
         "text": "Điểm yếu chí mạng của loài sói xám nằm ở đâu, xin anh chủ shop chỉ giáo!",
         "true_intent": "INFO",
         "pred_intent": "UNKNOWN"
+      }
+    ],
+    "PyTorch MLP (SiLU)": [
+      {
+        "text": "ê có nhận trao đổi dai dao cu lay hàng mới bù them ngoc k lao bản coi",
+        "true_intent": "TRADE",
+        "pred_intent": "INFO"
+      },
+      {
+        "text": "co nhận trao doi giày tốc do cu lay hàng moi bù thêm zen cha dai sư đi",
+        "true_intent": "TRADE",
+        "pred_intent": "INFO"
+      },
+      {
+        "text": "muon hoan thanh mat thu nay thi minh can thu thap du may cai bui tien?",
+        "true_intent": "INFO",
+        "pred_intent": "TRADE"
+      },
+      {
+        "text": "ơ kìa muốn hoàn thành q này thì bố m cần thu thập đủ mấy cái xương khô",
+        "true_intent": "INFO",
+        "pred_intent": "TRADE"
       },
       {
         "text": "ai la nguoi giao uy thac kham pha vung dao hai tac vay thay phap",
@@ -634,48 +666,16 @@
         "text": "ê cho xin cai danh giá về ngoai hạng anh năm nay xem co đáng lua mua ko bạn ơi nhé",
         "true_intent": "UNKNOWN",
         "pred_intent": "TRADE"
-      }
-    ],
-    "PyTorch MLP (SiLU)": [
+      },
       {
-        "text": "Shop có nhận ship lẩu thái qua ứng dụng giao đồ ăn không thế?",
+        "text": "Điểm yếu chí mạng của loài goblin nằm ở đâu, xin NPC chỉ giáo!",
+        "true_intent": "INFO",
+        "pred_intent": "UNKNOWN"
+      },
+      {
+        "text": "thầy giáo bắt nộp đồ án tiếng anh ielts mà giờ người chơi này chưa viết dk chữ nào",
         "true_intent": "UNKNOWN",
-        "pred_intent": "HOSTILE"
-      },
-      {
-        "text": "ê có nhận trao đổi dai dao cu lay hàng mới bù them ngoc k lao bản coi",
-        "true_intent": "TRADE",
-        "pred_intent": "INFO"
-      },
-      {
-        "text": "điểm yếu chí mạng của loài goblin nằm chỗ nào, xin npc chỉ giáo",
-        "true_intent": "INFO",
-        "pred_intent": "UNKNOWN"
-      },
-      {
-        "text": "Từ đây cuốc bộ tới doanh trại orc mất bao lâu hả tiền bối?",
-        "true_intent": "INFO",
         "pred_intent": "GREETING"
-      },
-      {
-        "text": "ơ kìa goi cho anh đây may món đá khảm mang đi duong, tính lúa luôn nhe coi",
-        "true_intent": "TRADE",
-        "pred_intent": "UNKNOWN"
-      },
-      {
-        "text": "Này NPC, nhận ra khách quen là mình không, alo!",
-        "true_intent": "GREETING",
-        "pred_intent": "INFO"
-      },
-      {
-        "text": "muon hoan thanh mat thu nay thi minh can thu thap du may cai bui tien?",
-        "true_intent": "INFO",
-        "pred_intent": "HOSTILE"
-      },
-      {
-        "text": "nay shop, nhan ra khach quen la minh k, e",
-        "true_intent": "GREETING",
-        "pred_intent": "HOSTILE"
       }
     ]
   }
